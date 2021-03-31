@@ -11,7 +11,8 @@ namespace TourManagementApi.Controllers
     {
         SqlConnection con = null;
         SqlCommand cmd = null;
-        String ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename = C:\USERS\RAJKA\ONEDRIVE\DESKTOP\CLIENT\APP_DATA\DATABASE1.MDF;Integrated Security = True";
+
+        String ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename = C:\USERS\RAJKA\ONEDRIVE\DESKTOP\WEBAPIPROJECT_CE049_CE056\CLIENT\APP_DATA\DATABASE1.MDF;Integrated Security = True";
 
         [HttpGet]
         public IHttpActionResult Get(String username)
@@ -100,7 +101,6 @@ namespace TourManagementApi.Controllers
             }
         }
 
-        // PUT: api/Auth/5
         public void Put(int id, [FromBody]string value)
         {
         }
