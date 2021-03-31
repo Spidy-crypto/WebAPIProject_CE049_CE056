@@ -124,6 +124,7 @@
     <Content Include="css\Registration.css" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="UpdateTour.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTour.aspx.cs">
+      <DependentUpon>UpdateTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateTour.aspx.designer.cs">
+      <DependentUpon>UpdateTour.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
