@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Configuration;
 using TourManagementApi.Models;
 
 namespace TourManagementApi.Controllers
@@ -11,8 +12,10 @@ namespace TourManagementApi.Controllers
     {
         SqlConnection con = null;
         SqlCommand cmd = null;
-        String ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename = C:\USERS\RAJKA\ONEDRIVE\DESKTOP\CLIENT\APP_DATA\DATABASE1.MDF;Integrated Security = True";
-
+        //String ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename = C:\USERS\RAJKA\ONEDRIVE\DESKTOP\CLIENT\APP_DATA\DATABASE1.MDF;Integrated Security = True";
+        string ConnectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+        
+  
         [HttpGet]
         public IHttpActionResult Get(String username)
         {
