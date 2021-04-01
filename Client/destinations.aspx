@@ -1,93 +1,44 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addpessenger.aspx.cs" Inherits="Client.addpessenger" %>
-	
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="destinations.aspx.cs" Inherits="Client.destinations" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <html lang="en" runat="server">
 <head>
-	<title>Destinations</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Travello template project">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-	<link rel="stylesheet" type="text/css" href="styles/destinations.css">
-	<link rel="stylesheet" type="text/css" href="styles/destinations_responsive.css">
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<title>Destinations</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Travello template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/destinations.css">
 <link rel="stylesheet" type="text/css" href="styles/destinations_responsive.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
-    <link rel="stylesheet" href=" css/style.css ">
-	<script>
-        var form_num = 0;
-        $(document).ready(function () {
-            $("a").click(function () {
-                form_num++;
-                $("input[id='id_form-TOTAL_FORMS']").attr('value', form_num + 1);
-                $("form").append("<br/><label for='id_form-" + form_num + "-first_name'>First name:</label> <input id='id_form-" + form_num + "-first_name' type='text' value='' name='form-" + form_num + "-first_name'/> <label for='id_form-" + form_num + "-last_name'>Last name:</label> <input id='id_form-" + form_num + "-last_name' type='text' value='' name='form-" + form_num + "-last_name'/> <label for='id_form-" + form_num + "-age'>Age:</label> <input id='id_form-" + form_num + "-age' type='number' step='1' value='' name='form-" + form_num + "-age'/><br/>");
-            });
-
-        });
-  </script>
     <style>
-        input[type=text],
-        select {
-            width: 15%;
-            padding: 6px 6px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input[type=number],
-        select {
-            width: 7%;
-            padding: 6px 6px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input[type=submit] {
-            width: 20%;
-              background-color: #4CAF50;
-              color: white;
-              padding: 14px 20px;
-              margin: 8px 0;
-              border: none;
-              border-radius: 4px;
-              cursor: pointer;
-              position: absolute;
-              left : 800px;
-        }
-        form {
-			font-weight :700;
+		.favourite{
+			border-radius: 10px;
+			font-size: 15px;
+			
+			 width:auto;
+			 height :auto;
+			background-color: #4CAF50;
+			  color: white;
+			 border: 2px solid #4CAF50; /* Green */
 		}
-        input[type=submit]:hover {
-              background-color: #45a049;
-            box-shadow: 5px 7px 8px #888888;
-            }
-        .date : {
-             position: absolute;
-             left: 9s00px;
 
-        }
-      </style>
+		.favourite:hover {
+			  //background-color: #000000;
+			  //color: white;
+			}
+    </style>
+
 </head>
 <body>
-	
+	<form id="form1" runat="server">
 <div class="super_container">
 	
 	<!-- Header -->
@@ -142,11 +93,11 @@
 		</div>
 		<div class="menu_content">
 			<ul>
-				<li><a href="inex.html">Home</a></li>
-				<li><a href="about.html">About us</a></li>
+				<li><a href="destinations.aspx">Home</a></li>
+				<li><a href="favourite.aspx">Favourite Places</a></li>
 				<li><a href="#">Services</a></li>
-				<li><a href="news.html">News</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<li><a href="#">News</a></li>
+				<li><a href="#">Contact</a></li>
 			</ul>
 		</div>
 		<div class="menu_social">
@@ -195,51 +146,123 @@
 
 	<!-- Destinations -->
 
-	<div class="destination_details_info" id="destinations">
+	<div class="destinations" id="destinations">
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_subtitle">simply amazing places</div>
-					<div class="section_title"><h2>Add Pessengers</h2></div>
+					<div class="section_title"><h2>Popular Destinations</h2></div>
 				</div>
 			</div>
-			
+			<div class="row destination_sorting_row">
+				<div class="col">
+					<div class="destination_sorting d-flex flex-row align-items-start justify-content-start">
+						<div class="sorting">
+							<ul class="item_sorting">
+								<li>
+									<span class="sorting_text">Sort By</span>
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
+									<ul>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Show All</span></li>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Name</span></li>
+									</ul>
+								</li>
+								<li>
+									<span class="sorting_text">Categories</span>
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
+									<ul>
+										<li class="num_sorting_btn"><span>Category</span></li>
+										<li class="num_sorting_btn"><span>Category</span></li>
+										<li class="num_sorting_btn"><span>Category</span></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="sort_box ml-auto"><i class="fa fa-th" aria-hidden="true"></i></div>
+					</div>
+				</div>
+			</div>
 			<div class="row destinations_row">
 				<div class="col">
 					<div class="destinations_container item_grid">
-                      
-						<div>
-						<form method="POST" runat="server" >
-	  
-							<asp:Label ID="Label4" runat="server" Text="Trip Date"></asp:Label>
-							&nbsp;&nbsp;&nbsp;
-							<asp:TextBox ID="trip_date" runat="server"  TextMode="Date"  placeholder="12-12-2016" ></asp:TextBox></br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="submit" runat="server"  Text="Add Passenger" OnClick="submit_Click"/>
-							</br>
-							<asp:Label ID="Label1" runat="server" Text="First Name"></asp:Label>
-							<asp:TextBox ID="fname" runat="server"></asp:TextBox>
-							<asp:Label ID="Label2" runat="server" Text="Last Name"></asp:Label>
-							<asp:TextBox ID="lname" runat="server"></asp:TextBox>
-							<asp:Label ID="Label3" runat="server" Text="Age" ></asp:Label>
-							<asp:TextBox ID="age" runat="server"></asp:TextBox>
 
-							
-       
-                            
-							<div class="submit_btn">
+						<!-- Destination -->
 
-								<button class="boxed-btn4" style="width:auto" type="button" onclick="window.location.href='payment.aspx'">Book Here</button>
+						<%-- <% foreach (var i in places) {%>
+						<div class="destination item">
+							<div class="destination_image">
+								<img src="images/<%=i.imagepath %>" alt="">
+								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
 							</div>
-								
-					   </form>
-							
-						
+							<div class="destination_content">
+								<div class="destination_title"><a href="#"><%=i.name %></a></div>
+								<input type="text" id="placeid" name="placeid" value="<%=i.placeid%>" >
+								<div class="buttons">
+									
+										<div class="buttons_container d-flex flex-row align-items-start justify-content-start">
+											<div class="button" runat="server">
+												<asp:Button ID="Button1" runat="server" Text="Button" CommandName="ThisBtnClick" onCommand="Button1_Command" CommandArgument='<%# Eval("i.placeid")%>' OnClick="Button1_Click" /></div>
+                                        
+										</div>
+									
+								</div>
+								<input type="text" id="place" runat="server" >
+                                
+
+								<div class="destination_subtitle"><p><%=i.desc %></p></div>
+								<div class="destination_price">From <%=i.price %></div>
+								<div class="destination_list">
+									<ul>
+										<li>5 Stars Hotel</li>
+										<li>All Inclusive</li>
+										<li>Flight tickets included</li>
+										<li>Guided visits</li>
+									</ul>
+								</div>
+							</div>
 						</div>
+						<% } %>--%>
+                       
+                        <asp:Repeater ID="Repeater1" runat="server">
+							<ItemTemplate>
+								
+
+
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="images/<%# Eval("imagepath") %>" alt="">
+										<div><asp:Button CssClass="favourite" ID="Button1" runat="server" Text="Add To Favourite" CommandName="ThisBtnClick" onCommand="Button1_Command" CommandArgument='<%# Eval("placeid")%>' OnClick="Button1_Click" /></div>
+									</div>
+									<div class="destination_content">
+                                        <div class="row">
+											<div class="destination_title"><a href="#"><%# Eval("name") %></a></div>		
+                                        </div>
+										<div class="destination_subtitle"><p><%# Eval("desc") %></p></div>
+										<div class="destination_price">From <%# Eval("price") %></div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</ItemTemplate>
+
+                        </asp:Repeater>
+
 
 					</div>
 				</div>
 			</div>
-			
+			<div class="row load_more_row">
+				<div class="col">
+					<div class="button load_more_button"><a href="#">load more</a></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -248,6 +271,25 @@
 	<footer class="footer">
 		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/footer_1.jpg" data-speed="0.8"></div>
 		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="newsletter">
+						<div class="newsletter_title_container text-center">
+							<div class="newsletter_title">Subscribe to our newsletter to get the latest trends & news</div>
+							<div class="newsletter_subtitle">Join our database NOW!</div>
+						</div>
+						<div class="newsletter_form_container">
+							
+								<div class="d-flex flex-md-row flex-column align-items-start justify-content-between">
+									<div><input type="text" class="newsletter_input newsletter_input_name" id="newsletter_input_name" placeholder="Name"  ><div class="input_border"></div></div>
+									<div><input type="email" class="newsletter_input newsletter_input_email" id="newsletter_input_email" placeholder="Your e-mail"  ><div class="input_border"></div></div>
+								</div>
+								<div><button class="newsletter_button">subscribe</button></div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="row footer_contact_row">
 				<div class="col-xl-10 offset-xl-1">
 					<div class="row">
@@ -297,55 +339,12 @@
 				</div>
 			</div>
 		</div>
-		
+		<div class="col text-center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </div>
 	</footer>
 </div>
-		<script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/mail-script.js"></script>
-	<script src=" js/vendor/modernizr-3.5.0.min.js "></script>
-    <script src=" js/vendor/jquery-1.12.4.min.js "></script>
-    <script src=" js/popper.min.js "></script>
-    <script src=" js/bootstrap.min.js "></script>
-    <script src=" js/owl.carousel.min.js "></script>
-    <script src=" js/isotope.pkgd.min.js "></script>
-    <script src=" js/ajax-form.js "></script>
-    <script src=" js/waypoints.min.js "></script>
-    <script src=" js/jquery.counterup.min.js "></script>
-    <script src=" js/imagesloaded.pkgd.min.js "></script>
-    <script src=" js/scrollIt.js "></script>
-    <script src=" js/jquery.scrollUp.min.js "></script>
-    <script src=" js/wow.min.js "></script>
-    <script src=" js/nice-select.min.js "></script>
-    <script src=" js/jquery.slicknav.min.js "></script>
-    <script src=" js/jquery.magnific-popup.min.js "></script>
-    <script src=" js/plugins.js "></script>
-    <script src=" js/gijgo.min.js "></script>
-    <script src=" js/slick.min.js "></script>
 
-
-
-    <!--contact js-->
-    <script src=" js/contact.js "></script>
-    <script src=" js/jquery.ajaxchimp.min.js "></script>
-    <script src=" js/jquery.form.js "></script>
-    <script src=" js/jquery.validate.min.js "></script>
-    <script src=" js/mail-script.js "></script>
-
-
-    <script src=" js/main.js "></script>
-
-    <script src="js/main.js"></script>
-    <script>
-        $('#datepicker').datepicker({
-            iconsLibrary: 'fontawesome',
-            icons: {
-                rightIcon: '<span class="fa fa-caret-down"></span>'
-            }
-        });
-    </script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -354,7 +353,7 @@
 <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/destinations.js"></script>
-		
+		</form>
 </body>
 </html>
 

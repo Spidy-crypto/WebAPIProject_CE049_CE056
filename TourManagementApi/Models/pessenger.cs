@@ -37,7 +37,7 @@ namespace TourManagementApi.Models
             set { this._age = value; }
         }
 
-        public String trip_date 
+        public String trip_date
         {
             get { return _trip_date; }
             set { this._trip_date = value; }

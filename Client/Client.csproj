@@ -115,19 +115,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addpessenger.aspx" />
     <Content Include="AddTour.aspx" />
     <Content Include="App_Data\Database1.mdf" />
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="confirmation.aspx" />
     <Content Include="css\login.css" />
     <Content Include="css\Registration.css" />
+    <Content Include="destinations.aspx" />
+    <Content Include="favourite.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="payment.aspx" />
+    <Content Include="place.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="UpdateTour.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addpessenger.aspx.cs">
+      <DependentUpon>addpessenger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addpessenger.aspx.designer.cs">
+      <DependentUpon>addpessenger.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddTour.aspx.cs">
       <DependentUpon>AddTour.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -135,12 +148,47 @@
     <Compile Include="AddTour.aspx.designer.cs">
       <DependentUpon>AddTour.aspx</DependentUpon>
     </Compile>
+    <Compile Include="confirmation.aspx.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmation.aspx.designer.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="destinations.aspx.cs">
+      <DependentUpon>destinations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="destinations.aspx.designer.cs">
+      <DependentUpon>destinations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="favourite.aspx.cs">
+      <DependentUpon>favourite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="favourite.aspx.designer.cs">
+      <DependentUpon>favourite.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="place.aspx.cs">
+      <DependentUpon>place.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="place.aspx.designer.cs">
+      <DependentUpon>place.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
