@@ -117,6 +117,7 @@
   <ItemGroup>
     <Content Include="addpessenger.aspx" />
     <Content Include="AddTour.aspx" />
+    <Content Include="Admin.aspx" />
     <Content Include="App_Data\Database1.mdf" />
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="AddTour.aspx.designer.cs">
       <DependentUpon>AddTour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="confirmation.aspx.cs">
       <DependentUpon>confirmation.aspx</DependentUpon>

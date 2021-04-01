@@ -166,10 +166,6 @@ namespace TourManagementApi.Controllers
             }
         }
 
-        
-
-
-       
         void getPlace1()
         {
             List<Tour> users = new List<Tour>();

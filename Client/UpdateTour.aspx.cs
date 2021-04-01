@@ -20,20 +20,19 @@ namespace Client
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress = new Uri("https://localhost:44364/");
             placeid = Request.QueryString["placeid"];
-            var res = client.GetAsync("api/tour/" + "?id=" + int.Parse(placeid));
+            var res = client.GetAsync("api/tour/" +  int.Parse(placeid));
             res.Wait();
             var data = res.Result;                                                                                                                                                          
-            if (data.IsSuccessStatusCode && !Page.IsPostBack)
-            {
+            
                 var tour = data.Content.ReadAsAsync<Tour>();
                 tour.Wait();
                 Tour t = tour.Result;
 
-                    name.Value = t.name;
-                    price.Value = t.price;
-                    description.Value = t.desc;
+                name.Value = t.name;
+                price.Value = t.price;
+                description.Value = t.desc;
                 
-            }
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)

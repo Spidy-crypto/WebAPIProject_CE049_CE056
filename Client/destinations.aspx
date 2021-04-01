@@ -226,8 +226,6 @@
                        
                         <asp:Repeater ID="Repeater1" runat="server">
 							<ItemTemplate>
-								
-
 
 								<div class="destination item">
 									<div class="destination_image">
