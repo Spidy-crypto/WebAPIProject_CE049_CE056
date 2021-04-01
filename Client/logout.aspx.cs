@@ -7,19 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace Client
 {
-    public partial class confirmation : System.Web.UI.Page
+    public partial class logout : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["current_user"] == null)
-            {
-                Response.Redirect("login.aspx");
-            }
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
             Session.Remove("current_user");
+            Session.Remove("admin");
+
             Response.Redirect("login.aspx");
         }
     }

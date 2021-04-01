@@ -15,6 +15,10 @@ namespace Client
         HttpClient client = new HttpClient();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["current_user"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress = new Uri("https://localhost:44364/");
         }
@@ -27,16 +31,16 @@ namespace Client
             p.lname = Request.Form["lname"];
             p.age = Request.Form["age"];
             p.trip_date = trip_date.Text;
-            //string email = Session["current_user"].ToString();
-            p.email = "p@gmail.com";
+            p.email = Session["current_user"].ToString();
+            //p.email = "p@gmail.com";
 
-            //client.addpessenger(fname, lname, email, age, date);
+            
 
             var res = client.PostAsJsonAsync(url, p).Result;
             Console.Out.WriteLine(res.IsSuccessStatusCode);
             if (res.IsSuccessStatusCode)
             {
-                Response.Redirect("Login.aspx");
+                
             }
         }
 

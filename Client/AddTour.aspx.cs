@@ -16,17 +16,32 @@ namespace Client
         HttpClient client = new HttpClient();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["admin"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress = new Uri("https://localhost:44364/");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
+            string imagefile = "";
+            if (!FileUpload1.HasFile)
+            {
+                imagefile = "destination_1.jpg";
+            }
+            else
+            {
+                imagefile = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                FileUpload1.SaveAs(@"C:\Users\Dells\Documents\GitHub\WebApiProject_CE049_CE056\Client\images\" + imagefile);
+
+            }
             String url = "api/Tour";
 
-            string imagefile = Path.GetFileName(FileUpload1.PostedFile.FileName);
-            FileUpload1.SaveAs(@"C:\Users\rajka\OneDrive\Documents\GitHub\Tour-Management\Client\images\" + imagefile);
 
+           
             Tour t = new Tour();
             t.name = name.Value;
             t.desc = description.Value;
@@ -36,7 +51,7 @@ namespace Client
             var res = client.PostAsJsonAsync(url, t).Result;
             if (res.IsSuccessStatusCode)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("admin.aspx");
             }
         }
     }

@@ -125,9 +125,11 @@
     <Content Include="confirmation.aspx" />
     <Content Include="css\login.css" />
     <Content Include="css\Registration.css" />
+    <Content Include="delete.aspx" />
     <Content Include="destinations.aspx" />
     <Content Include="favourite.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="logout.aspx" />
     <Content Include="payment.aspx" />
     <Content Include="place.aspx" />
     <Content Include="Register.aspx" />
@@ -163,6 +165,13 @@
     <Compile Include="confirmation.aspx.designer.cs">
       <DependentUpon>confirmation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
     <Compile Include="destinations.aspx.cs">
       <DependentUpon>destinations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +192,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="payment.aspx.cs">
       <DependentUpon>payment.aspx</DependentUpon>

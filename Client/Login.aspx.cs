@@ -21,6 +21,14 @@ namespace Client
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
+            if (username.Value == "admin" && password.Value == "admin")
+            {
+                Session["admin"] = "admin";
+                Response.Redirect("admin.aspx");
+
+            }
+
             String url = "api/auth";
 
             var res = client.GetAsync(url + "?username=" + username.Value.ToString());
@@ -35,7 +43,8 @@ namespace Client
 
                 if(username.Value == u.email && password.Value == u.password)
                 {
-                    Response.Redirect("register.aspx");
+                    Session["current_user"] = username.Value;
+                    Response.Redirect("destinations.aspx");
                 }
 
             }

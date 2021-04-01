@@ -104,7 +104,7 @@
 									<li><a href="destinations.aspx">Home</a></li>
 									<li><a href="favourite.aspx">Favourite Places</a></li>
 								
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="#">Contact</a></li>
 									<li><a href="logout.aspx">Log-out</a></li>
 								</ul>
 							</nav>
@@ -145,8 +145,8 @@
 				<li><a href="inex.html">Home</a></li>
 				<li><a href="about.html">About us</a></li>
 				<li><a href="#">Services</a></li>
-				<li><a href="news.html">News</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<li><a href="#">News</a></li>
+				<li><a href="#">Contact</a></li>
 			</ul>
 		</div>
 		<div class="menu_social">

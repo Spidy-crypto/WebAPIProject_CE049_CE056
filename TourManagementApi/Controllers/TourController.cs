@@ -17,7 +17,7 @@ namespace TourManagementApi.Controllers
 
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
 
-        
+
         [HttpGet]
         [Route("api/Tour/{id}")]
         public IHttpActionResult Get(int id)
@@ -62,7 +62,7 @@ namespace TourManagementApi.Controllers
             }
         }
 
-        
+
 
         [HttpGet]
         [Route("api/Tour/all/")]
@@ -275,7 +275,7 @@ namespace TourManagementApi.Controllers
         [HttpPost]
         [Route("api/Tour/addtofavourite/{placeid}")]
 
-        public HttpResponseMessage postaddToFav([FromBody]String email, int placeid)
+        public HttpResponseMessage postaddToFav([FromBody] String email, int placeid)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
@@ -338,7 +338,7 @@ namespace TourManagementApi.Controllers
                     int res = cmd.ExecuteNonQuery();
                     if (res == 1)
                     {
-                        return Request.CreateResponse(HttpStatusCode.OK, "Tour added"); 
+                        return Request.CreateResponse(HttpStatusCode.OK, "Tour added");
                     }
                     else
                     {
@@ -363,6 +363,8 @@ namespace TourManagementApi.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("api/Tour/{id}")]
         public HttpResponseMessage Put(int id,Tour t)
         {
             try
@@ -374,10 +376,10 @@ namespace TourManagementApi.Controllers
                     string command = "UPDATE Place set name = @name, description = @description, price = @price, imagepath = @imagepath where placeid='" + id + "' ";
                     cmd = new SqlCommand(command, con);
                     con.Open();
-                    cmd.Parameters.Add("@name", t.name);
-                    cmd.Parameters.Add("@description", t.desc);
-                    cmd.Parameters.Add("@price", t.price);
-                    cmd.Parameters.Add("@imagepath", t.imagepath);
+                    cmd.Parameters.AddWithValue("@name", t.name);
+                    cmd.Parameters.AddWithValue("@description", t.desc);
+                    cmd.Parameters.AddWithValue("@price", t.price);
+                    cmd.Parameters.AddWithValue("@imagepath", t.imagepath);
                     int res = cmd.ExecuteNonQuery();
                     if (res == 1)
                     {
@@ -407,8 +409,46 @@ namespace TourManagementApi.Controllers
         }
 
         // DELETE: api/Tour/5
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("api/Tour/{id}")]
+        public HttpResponseMessage Delete(int id)
         {
+            try
+            {
+                con = new SqlConnection();
+                con.ConnectionString = this.ConnectionString;
+                using (con)
+                {
+                    string command = "DELETE FROM Place WHERE placeid='" + id + "' ";
+                    cmd = new SqlCommand(command, con);
+                    con.Open();
+                    
+                    int res = cmd.ExecuteNonQuery();
+                    if (res == 1)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, "Tour Updated");
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.BadRequest, "");
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "");
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                }
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+            }
         }
 
 
