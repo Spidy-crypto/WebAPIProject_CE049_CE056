@@ -1,6 +1,0 @@
-Client/App_Data/Database1.mdf
-Client/App_Data/Database1_log.ldf
-Client/bin
-Client/obj
-TourManagementApi/bin
-TourManagementApi/obj
