@@ -14,7 +14,8 @@ namespace TourManagementApi.Controllers
     {
         SqlConnection con = null;
         SqlCommand cmd = null;
-
+        List<int> fplaces = new List<int>();
+        List<Tour> places = new List<Tour>();
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
 
 
@@ -61,8 +62,6 @@ namespace TourManagementApi.Controllers
                 }
             }
         }
-
-
 
         [HttpGet]
         [Route("api/Tour/all/")]
@@ -115,9 +114,7 @@ namespace TourManagementApi.Controllers
             }
         }
 
-        List<int> fplaces = new List<int>();
-        List<Tour> places = new List<Tour>();
-
+        
 
         [HttpGet]
         [Route("api/Tour/favourite/")]
@@ -269,9 +266,6 @@ namespace TourManagementApi.Controllers
         }
 
 
-
-
-
         [HttpPost]
         [Route("api/Tour/addtofavourite/{placeid}")]
 
@@ -317,7 +311,6 @@ namespace TourManagementApi.Controllers
                 }
             }
         }
-
 
 
         public HttpResponseMessage Post(Tour t)
