@@ -14,9 +14,16 @@ namespace Client
     public partial class UpdateTour : System.Web.UI.Page
     {
         HttpClient client = new HttpClient();
-        private string placeid;
+        public string placeid;
+        Tour t1 = new Tour();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["admin"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress = new Uri("https://localhost:44364/");
             placeid = Request.QueryString["placeid"];
@@ -26,19 +33,33 @@ namespace Client
             
                 var tour = data.Content.ReadAsAsync<Tour>();
                 tour.Wait();
-                Tour t = tour.Result;
+                t1 = tour.Result;
 
-                name.Value = t.name;
-                price.Value = t.price;
-                description.Value = t.desc;
+            if (!IsPostBack)
+            {
+                name.Value = t1.name;
+                price.Value = t1.price;
+                description.Value = t1.desc;
+            }
+                
+                
                 
             
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string imagefile = Path.GetFileName(FileUpload1.PostedFile.FileName);
-            FileUpload1.SaveAs(@"C:\Users\rajka\OneDrive\Documents\GitHub\Tour-Management\Client\images\" + imagefile);
+            string imagefile = "";
+            if (!FileUpload1.HasFile)
+            {
+                imagefile = t1.imagepath;
+            }
+            else
+            {
+                imagefile = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                FileUpload1.SaveAs(@"C:\Users\Dells\Documents\GitHub\WebApiProject_CE049_CE056\Client\images\" + imagefile);
+
+            }
             String url = "api/Tour";
 
             Tour t = new Tour();
@@ -47,11 +68,14 @@ namespace Client
             t.price = price.Value;
             t.imagepath = imagefile;
 
-            var res = client.PutAsJsonAsync(url + "?id=" + int.Parse(placeid),t).Result;
+            var res = client.PutAsJsonAsync(url + "/" + int.Parse(placeid),t).Result;
             if (res.IsSuccessStatusCode)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("admin.aspx");
             }
         }
     }
 }
+
+
+

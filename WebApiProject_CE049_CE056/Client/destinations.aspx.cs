@@ -23,10 +23,10 @@ namespace Client
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            /*if (Session["current_user"] == null)
+            if (Session["current_user"] == null)
             {
                 Response.Redirect("login.aspx");
-            }*/
+            }
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress = new Uri("https://localhost:44364/");
 
@@ -73,10 +73,10 @@ namespace Client
         protected void Button1_Command(object sender, CommandEventArgs e)
         {
 
-            //string email = Session["current_user"].ToString();
+            string email = Session["current_user"].ToString();
             //client.addToFav(email, Int32.Parse(e.CommandArgument.ToString()));
 
-            string email = "p@g.com";
+            //string email = "p@g.com";
 
             String url = "api/Tour/addtofavourite/" + e.CommandArgument.ToString();
 

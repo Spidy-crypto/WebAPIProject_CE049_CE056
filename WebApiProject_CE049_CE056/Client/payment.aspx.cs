@@ -21,16 +21,16 @@ namespace Client
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            /*if (Session["current_user"] == null)
+            if (Session["current_user"] == null)
             {
                 Response.Redirect("login.aspx");
-            }*/
+            }
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress = new Uri("https://localhost:44364/");
 
-            //string email = Session["current_user"].ToString();
-            string email = "p@g.com";
+            string email = Session["current_user"].ToString();
+            //string email = "p@g.com";
             int placeid;
 
 

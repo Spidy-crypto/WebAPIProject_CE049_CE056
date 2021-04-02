@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Client.Login" %>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -7,14 +9,16 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <style>
         body {
-        background-image: url("images/bg.jpg");
+        background-image: url("images/destination_1.jpg");
         background-size: cover;
         }
     </style>
 </head>
 
 <body>
+    <div><h2 style="color:white">Tour Management</h2></div>
     <div class="login" data-aos="fade-up" data-aos-once="true">
+        
         <h2>Log In Here</h2>
         <form id="loginform" runat="server">
             <label for="username">Username :- </label>

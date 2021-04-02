@@ -35,7 +35,7 @@
 									<li><a href="AddTour.aspx">Add Place</a></li>
 									<li><a href="#">Services</a></li>
 									<li><a href="#">News</a></li>
-									<li><a href="#">Logout</a></li>
+									<li><a href="logout.aspx">Logout</a></li>
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -95,8 +95,8 @@
 									
 												<div class="buttons_container d-flex flex-row align-items-start justify-content-start">
 													<div runat="server">
-														<asp:Button ID="Button1" runat="server" Text="Update" CommandName="ThisBtnClick" onCommand="Button1_Command" CommandArgument='<%# Eval("placeid")%>' OnClick="Button1_Click" /></div>
-                                        
+														<asp:Button ID="Button1" runat="server" Text="Update" CommandName="ThisBtnClick" onCommand="Button1_Command" CommandArgument='<%# Eval("placeid")%>' OnClick="Button1_Click" />
+														<asp:Button ID="Button2" runat="server" Text="Delete" CommandName="ThisBtnClick" onCommand="Button2_Command" CommandArgument='<%# Eval("placeid")%>' OnClick="Button1_Click" /></div>
 												</div>
 									
 										</div>

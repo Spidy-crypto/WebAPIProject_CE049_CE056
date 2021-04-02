@@ -16,6 +16,10 @@ namespace Client
         protected Tour[] places { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["admin"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress = new Uri("https://localhost:44364/");
 
@@ -46,6 +50,23 @@ namespace Client
         protected void Button1_Command(object sender, CommandEventArgs e)
         {
             Response.Redirect("UpdateTour.aspx?placeid=" + e.CommandArgument.ToString());
+        }
+
+        protected void Button2_Command(object sender, CommandEventArgs e)
+        {
+            //Response.Redirect("delete.aspx?placeid=" + e.CommandArgument.ToString());
+
+            String url = "api/Tour";
+            int placeid = Int32.Parse(e.CommandArgument.ToString());
+            var deleteTask = client.DeleteAsync(url + "/" + placeid);
+            deleteTask.Wait();
+
+            var result = deleteTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                Response.Redirect("admin.aspx");
+            }
+
         }
     }
 }
